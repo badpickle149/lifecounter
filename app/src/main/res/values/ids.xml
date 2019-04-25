@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="p1_button_plus" type="id"/>
+    <item name="p1_button_minus" type="id"/>
+    <item name="p1_life_total" type="id"/>
+    <item name="p2_button_plus" type="id"/>
+    <item name="p2_button_minus" type="id"/>
+    <item name="p2_life_total" type="id"/>
+    <item name="p3_button_plus" type="id"/>
+    <item name="p3_button_minus" type="id"/>
+    <item name="p3_life_total" type="id"/>
+    <item name="p4_button_plus" type="id"/>
+    <item name="p4_button_minus" type="id"/>
+    <item name="p4_life_total" type="id"/>
+</resources>
