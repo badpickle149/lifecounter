@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,11 +31,25 @@ class MainActivity : AppCompatActivity() {
         lifeTotals.add(findViewById(R.id.p3_life_total))
         lifeTotals.add(findViewById(R.id.p4_life_total))
 
-        assignButtonBehavior(lifeTotals , minusButtons, plusButtons)
+        var plus5Buttons = ArrayList<Button>()
+        plus5Buttons.add(findViewById(R.id.plus5_player1))
+        plus5Buttons.add(findViewById(R.id.plus5_player2))
+        plus5Buttons.add(findViewById(R.id.plus5_player3))
+        plus5Buttons.add(findViewById(R.id.plus5_player4))
+
+        var minus5Buttons = ArrayList<Button>()
+        minus5Buttons.add(findViewById(R.id.minus5_player1))
+        minus5Buttons.add(findViewById(R.id.minus5_player2))
+        minus5Buttons.add(findViewById(R.id.minus5_player3))
+        minus5Buttons.add(findViewById(R.id.minus5_player4))
+
+        assignButtonBehavior(lifeTotals , minusButtons, plusButtons, plus5Buttons, minus5Buttons)
 
     }
 
-    fun assignButtonBehavior(lifeTotals: ArrayList<TextView>, minusButtons: ArrayList<Button>, plusButtons: ArrayList<Button>) {
+    fun assignButtonBehavior(lifeTotals: ArrayList<TextView>, minusButtons: ArrayList<Button>,
+                             plusButtons: ArrayList<Button>, plus5Buttons: ArrayList<Button>,
+                             minus5Buttons: ArrayList<Button>) {
         for (i in 0..3) {
             val length = lifeTotals[i].text.length
             var count = lifeTotals[i].text.substring(length - 1, length).toInt()
@@ -42,11 +57,27 @@ class MainActivity : AppCompatActivity() {
                 count++
                 lifeTotals[i].setText("Life Total: " + count)
             }
+
             minusButtons[i].setOnClickListener {
                 count--
                 lifeTotals[i].setText("Life Total: " + count)
                 if (count == 0) {
-                    Toast.makeText(this, "Player " + i + " LOSES!", Toast.LENGTH_LONG).show()
+                    val losingPlayer = findViewById<TextView>(R.id.losing_player)
+                    losingPlayer.setText("Player " + (i + 1) + " LOST!")
+                }
+            }
+
+            plus5Buttons[i].setOnClickListener {
+                count+=5
+                lifeTotals[i].setText("Life Total: " + count)
+            }
+
+            minus5Buttons[i].setOnClickListener {
+                count-=5
+                lifeTotals[i].setText("Life Total: " + count)
+                if (count == 0) {
+                    val losingPlayer = findViewById<TextView>(R.id.losing_player)
+                    losingPlayer.setText("Player " + (i + 1) + " LOST!")
                 }
             }
         }

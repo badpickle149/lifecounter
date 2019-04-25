@@ -12,4 +12,13 @@
     <item name="p4_button_plus" type="id"/>
     <item name="p4_button_minus" type="id"/>
     <item name="p4_life_total" type="id"/>
+    <item name="losing_player" type="id"/>
+    <item name="plus5_player1" type="id"/>
+    <item name="plus5_player2" type="id"/>
+    <item name="plus5_player3" type="id"/>
+    <item name="plus5_player4" type="id"/>
+    <item name="minus5_player1" type="id"/>
+    <item name="minus5_player2" type="id"/>
+    <item name="minus5_player3" type="id"/>
+    <item name="minus5_player4" type="id"/>
 </resources>
